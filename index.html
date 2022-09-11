@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>test site</title>
+        <style>
+            label {
+                display: block;
+                padding: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div>
+            <ol>
+                <li><a href="http://example.com/">example.com</a></li>
+                <li><a href="https://example.com/">https</a></li>
+                <li><a href="ftp://ftp.mirror.nl/pub/">ftp</a></li>
+                <li><a href="ftp://user:password@example.com/myfile.zip">dtp с авторизацией</a></li>
+                <li><a href="https://stackoverflow.com/questions/47675934/running-django-server-on-localhost#answers">внешняя по id</a></li>
+                <li><a href="#superpowers">superpowers</a></li>
+                <li><a href="https://www.google.com/search?q=link+with+2+parameters+example&sxsrf=ALiCzsaP5HUN-7_H5cac1mtcV20CHoTcyw%253A1662913678312">2 параметра</a></li>
+                <li>
+                    <a href="https://example.com/" title="home">home</a>
+                    <a href="https://example.com/news/" title="news">news</a>
+                    <a href="https://example.com/about/" title="about">about</a>
+                </li>
+                <li><a>link</a></li>
+                <li><a href="">пустая</a></li>
+                <li><a href="" rel="nofollow">без перехода</a></li>
+                <li><a href="" rel="noindex">без индексации</a></li>
+                <li>
+                    <p>
+                        CSS Guidelines is a document by me, <a href="https://csswizardry.com/work/">Harry Roberts</a>. I am a Consultant Front-end Architect from the UK, and I help companies all over the world write and manage better quality UIs for their products and teams. I am available for hire.
+                    </p>
+                    
+                </li>
+                <li><a href="https://ru.wikipedia.org/wiki/"><img alt="gorilla" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Male_silverback_Gorilla.JPG/413px-Male_silverback_Gorilla.JPG"></a></li>
+                <li>
+                    <map name="pic">
+                        <area alt="circled area" shape="circle" coords="0,0,75" href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/map">
+                        <area alt="area in the square" shape="rect" coords="100,50,150,100" href="https://developer.mozilla.org/docs/Web/CSS">
+                    </map>
+                    <img alt="twin peaks" usemap="#pic" src="https://upload.wikimedia.org/wikipedia/en/e/ea/TwinPeaks_openingshotcredits.jpg">
+                </li>
+                <li><a href="./info">информация</a></li>
+                <li><a href="/about/something">что-то</a></li>
+                <li><a href="../user11">на 1 вверх</a></li>
+                <li><a href="../../user21">на 2 вверх</a></li>
+                <li><a href="/">короткая на главную</a></li>
+                <li><a href="/hello.html">в этом каталоге</a></li>
+            </ol>
+        </div>
+
+
+        <div>
+            <form>
+                <div>
+                    <label>ФИО: <input type="text"></label>
+                    <label>Введите почту: <input type="email"></label>
+                    <label>Введите дату: <input type="date"></label>
+                </div>
+
+                <div>
+                    <h4>Выберите пол</h4>
+                    <label>Муж.<input type="radio"></label>
+                    <label>Жен.<input type="radio"></label>
+                    <label>Ударный вертолет Апач<input type="radio"></label>
+                </div>
+
+                <div>
+                    <h4>Ручки - ножки есть?</h4>
+                    <label>1<input type="radio"></label>
+                    <label>2<input type="radio"></label>
+                    <label>3<input type="radio"></label>
+                    <label>4<input type="radio"></label>
+                </div>
+                
+                <label for="superpowers">Суперспособности</label>
+                <select id="superpowers">
+                    <option>бессмертие</option>
+                    <option>прохождение сквозь стены</option>
+                    <option>левитация</option>
+                </select>
+
+                <div>
+                    <label><textarea></textarea></label>
+                    <label>С контрактом ознакомлен(а)<input type="checkbox"></label>
+                    <input type="submit" value="Отправить">
+                </div>
+            </form>
+        </div>
+
+    </body>
+</html>
