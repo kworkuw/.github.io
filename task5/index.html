@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body style="display: flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="display: flex; flex-direction:column;">
+            <input type="number" name="cost" placeholder="cost" required>
+            <input type="number" name="quantity" placeholder="quantity" required>
+            <button id="calc">Calculate</button>
+        </div>
+        <script>
+            function calculateCost(event){
+                let costEl = document.createElement("h2");
+
+                let quantity = document.getElementsByName("quantity")[0].value;
+                let cost = document.getElementsByName("cost")[0].value;
+                console.log(cost, quantity)
+
+                costEl.textContent = cost*quantity;
+                document.body.append(costEl);
+            }
+            function listener(event){
+                let button = document.getElementById("calc");
+                button.addEventListener("click", calculateCost);
+                console.log("Hello");
+            }
+
+            document.addEventListener("DOMContentLoaded", listener);
+
+        </script>
+    </body>
+</html>
