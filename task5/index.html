@@ -11,17 +11,18 @@
             <input type="number" name="cost" placeholder="cost" required>
             <input type="number" name="quantity" placeholder="quantity" required>
             <button id="calc">Calculate</button>
+            <h2 id="total"></h2>
         </div>
         <script>
             function calculateCost(event){
-                let costEl = document.createElement("h2");
+                
 
                 let quantity = document.getElementsByName("quantity")[0].value;
                 let cost = document.getElementsByName("cost")[0].value;
                 console.log(cost, quantity)
 
-                costEl.textContent = cost*quantity;
-                document.body.append(costEl);
+                
+                document.total.textContent = cost*quantity;
             }
             function listener(event){
                 let button = document.getElementById("calc");
