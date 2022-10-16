@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style="display: flex; flex-direction: column; align-items:center;">
+        <div id="calculator">
+            <input type="number" id="quantity" required>
+            <select name="choice" id="choice">
+                <option value="Apples">Apples</option>
+                <option value="Oranges">Oranges</option>
+                <option value="Dragonfruit">Dragonfruit</option>
+            </select>
+
+            <div id="container" style="display: none;">
+                <ul id="options">
+                    <li></li>                  
+                    <li></li>                                      
+                </ul>
+                <ul id="properties">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <h2 id="total"></h2>
+            <button id="calc">Calculate</button>
+        </div>
+        <script>
+            let select = document.getElementById("choice");
+            let divContainer = document.getElementById("container");
+
+            let costDisp = document.getElementById("total");
+
+            let cost = new Map([["Apples", 10], ["Oranges", 20], ["Dragonfruit", 50]]);
+
+            function fillOrangesForm(){
+                let options = divContainer.querySelector("#options");
+                let properties = divContainer.querySelector("#properties");
+
+                properties.style.display = "none";
+                options.style.display = "";
+
+                let lis = options.children;
+                lis[0].innerHTML = "Red<input name='option' type='radio' value='15'>" ;
+                lis[1].innerHTML = "Regular<input name='option' type='radio' value='10'>";
+            };
+
+            function fillDragonFruit(){
+                let options = divContainer.querySelector("#options");
+                let properties = divContainer.querySelector("#properties");
+
+                options.style.display = "none";
+                properties.style.display = "";
+
+                let lis = properties.children;
+                lis[0].innerHTML = "Packaged individually<input type='checkbox' value='100'>" ;
+                lis[1].innerHTML = "Packaged in a bunch<input type='checkbox' value='50'>";
+                lis[2].innerHTML = "Unpackaged<input type='checkbox' value='25'>";
+            }
+
+            function selectHandler(event){
+                let fruit = event.target.value;
+                switch(fruit){
+                    case "Apples":
+                        costDisp.textContent = "";
+                        divContainer.style.display = "none";
+                        break;
+                    case "Oranges":
+                        costDisp.textContent = "";
+                        divContainer.style.display = "";
+                        fillOrangesForm();
+                        break;
+                    case "Dragonfruit":
+                        costDisp.textContent = "";
+                        divContainer.style.display = "";
+                        fillDragonFruit();
+                        break;
+                }
+            };
+
+            function calculate(event){
+                let form = document.getElementById("calculator");
+                
+                let quantity = +(document.getElementById("quantity").value);
+                if(quantity < 0){
+                    costDisp.textContent = "Value cant be less than 0";
+                    return;
+                }
+                switch(document.getElementById("choice").value){
+                    case "Apples":  
+                  
+                        console.log(typeof quantity.value)
+                        console.log(typeof cost["Apples"])
+
+                        costDisp.textContent = quantity*cost.get("Apples");
+                        break;
+                    case "Oranges":
+                       
+                        let opts = document.getElementById("options");
+                        let add_val = 0;
+                        for(let i of opts.children){
+                            if(i.children[0].checked){
+                                add_val = i.children[0].value;
+                                console.log(add_val)
+                            }
+                        }
+                        costDisp.textContent = quantity*(cost.get("Oranges") + +add_val);
+                        break;
+                    case "Dragonfruit":
+                   
+                        let props = document.getElementById("properties");
+                        let val = 0;
+                        for(let input of props.children){
+                            if(input.children[0].checked){
+                                console.log(input.children[0].value)
+                                val += +input.children[0].value;
+                            }
+                        }
+                      
+                        let res = quantity*(cost.get("Dragonfruit") + +val);
+                        costDisp.textContent = res;
+                        break;
+                }
+            }
+            select.options[0].selected = true;
+            
+            document.getElementById("calc").addEventListener("click", calculate);
+            select.addEventListener("input", selectHandler);
+
+        </script>
+    </body>
+</html>
