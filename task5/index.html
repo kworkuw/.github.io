@@ -22,7 +22,7 @@
                 let cost = document.getElementsByName("cost")[0].value;
                 console.log(cost, quantity)
                 if(quantity < 0 || cost < 0){
-                    document.total.textContent = "Error";
+                    document.getElementById("total").textContent = "Error";
                     return;
                 }
 
